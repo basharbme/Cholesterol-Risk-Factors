@@ -47,17 +47,13 @@ d = c.drop(['Third HDL SI'],axis = 1)
 e = d.drop(['Total Cholesterol( mg/dL)','Total Cholesterol( mmol/L)','PAT_ID'],axis = 1)
 e.info()
 #Steps Involved
-'''
 Steps Involved:
 1. Pre- processing
 2. Feature Engineering
 3. Model Development
 4. Testing
- '''
 # Feature Engineering
-'''Feature Selection: 
-The dataset has 33 features in total. Feature selection will help us understand which features are useful 
-for our model
+Feature Selection: 
 nt.describe()
 #Building Random Forest model
 # Import libraries for building random forest regressor
@@ -102,7 +98,7 @@ def stratified_cv(X, y, clf_class, shuffle=True, n_folds=10, **kwargs):
         clf.fit(X_train,y_train)
         y_pred[jj] = clf.predict(X_test)
     return y_pred
-    print('Passive Aggressive Classifier: {:.2f}'.format(metrics.accuracy_score(y, stratified_cv(X, y, linear_model.PassiveAggressiveClassifier))))
+print('Passive Aggressive Classifier: {:.2f}'.format(metrics.accuracy_score(y, stratified_cv(X, y, linear_model.PassiveAggressiveClassifier))))
 print('Gradient Boosting Classifier:  {:.2f}'.format(metrics.accuracy_score(y, stratified_cv(X, y, ensemble.GradientBoostingClassifier))))
 print('Support vector machine(SVM):   {:.2f}'.format(metrics.accuracy_score(y, stratified_cv(X, y, svm.SVC))))
 print('Random Forest Classifier:      {:.2f}'.format(metrics.accuracy_score(y, stratified_cv(X, y, ensemble.RandomForestClassifier))))
